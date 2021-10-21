@@ -33,7 +33,7 @@ import { lowerCaseFirst, upperCaseFirst } from "./utils.js";
  */
 export function convertOpenAPISpec(defaultGroup, data) {
   if (!data?.openapi?.startsWith("3.")) {
-    throw new Error("Only openapi spec version 3 is (partially) supported");
+    throw new Error("Only openAPI spec version 3 is (partially) supported");
   }
 
   const result = {

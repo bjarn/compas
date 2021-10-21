@@ -140,6 +140,22 @@ export function applyTestingServerStructure(app) {
   const T = new TypeCreator("server");
   const R = T.router("/");
 
+  // Group test
+  const testR = R.group("group", "/group");
+  app.add(
+    testR
+      .post("/:full/:color/route", "fullRoute")
+      .params({ full: T.string(), color: T.number().convert() })
+      .body({
+        foo: T.string(),
+        bar: T.reference("server", "options"),
+      })
+      .response({
+        foo: T.string(),
+        bar: T.reference("server", "answers"),
+      }),
+  );
+
   // Reference (validate TS output)
   app.add(
     T.string("options").oneOf("A", "B", "C"),

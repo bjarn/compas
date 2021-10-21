@@ -9,8 +9,12 @@ import { QueryPart } from "@compas/store";
 declare global {
   type CompasStructure = undefined | any;
   type CompasStructureResponse = any;
-  type ServerAnswers = { [K in ServerOptions]: string };
+  type GroupFullRoute = CompasStructure;
+  type GroupFullRouteBody = { foo: string; bar: ServerOptions };
   type ServerOptions = "A" | "B" | "C";
+  type GroupFullRouteParams = { full: string; color: number };
+  type GroupFullRouteResponse = { foo: string; bar: ServerAnswers };
+  type ServerAnswers = { [K in ServerOptions]: string };
   type ServerCreate = CompasStructure;
   type ServerCreateBody = { foo: boolean; string?: undefined | null | string };
   type ServerCreateQuery = { alwaysTrue?: undefined | boolean };
@@ -51,6 +55,20 @@ declare global {
   >;
   type CompasStructureFn = (
     ctx: CompasStructureCtx,
+    next: Next,
+  ) => void | Promise<void>;
+  type GroupFullRouteCtx = Context<
+    {},
+    {
+      event: InsightEvent;
+      log: Logger;
+      validatedParams: GroupFullRouteParams;
+      validatedBody: GroupFullRouteBody;
+    },
+    GroupFullRouteResponse
+  >;
+  type GroupFullRouteFn = (
+    ctx: GroupFullRouteCtx,
     next: Next,
   ) => void | Promise<void>;
   type ServerCreateCtx = Context<
@@ -196,9 +214,19 @@ declare global {
   ) => void | Promise<void>;
   type GroupMiddleware = {
     compas: Middleware | Middleware[];
+    group: Middleware | Middleware[];
     server: Middleware | Middleware[];
   };
   type CompasStructureResponseApiResponse = CompasStructureResponse;
+  type GroupFullRouteParamsInput = { full: string; color: number | string };
+  type GroupFullRouteBodyInput = { foo: string; bar: ServerOptionsInput };
+  type ServerOptionsInput = ServerOptions;
+  type GroupFullRouteResponseApiResponse = {
+    foo: string;
+    bar: ServerAnswersApiResponse;
+  };
+  type ServerAnswersApiResponse = { [K in ServerOptionsApiResponse]: string };
+  type ServerOptionsApiResponse = ServerOptions;
   type ServerCreateQueryInput = ServerCreateQuery;
   type ServerCreateBodyInput = ServerCreateBody;
   type ServerCreateResponseApiResponse = ServerCreateResponse;

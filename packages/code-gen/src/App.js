@@ -8,6 +8,7 @@ import {
 } from "@compas/stdlib";
 import { ReferenceType } from "./builders/ReferenceType.js";
 import { buildOrInfer } from "./builders/utils.js";
+import { generateOpenApi } from "./generate-openApi.js";
 import { generateTypes } from "./generate-types.js";
 import {
   addGroupsToGeneratorInput,
@@ -68,7 +69,14 @@ const defaultGenerateOptionsNodeServer = {
   isBrowser: false,
   isNodeServer: true,
   isNode: true,
-  enabledGenerators: ["type", "validator", "sql", "router", "apiClient"],
+  enabledGenerators: [
+    "type",
+    "validator",
+    "sql",
+    "router",
+    "apiClient",
+    "openAPI",
+  ],
   useTypescript: false,
   dumpStructure: false,
   dumpApiStructure: true,
@@ -234,6 +242,32 @@ export class App {
    */
   extendWithOpenApi(defaultGroup, data) {
     return this.extendInternal(loadFromOpenAPISpec(defaultGroup, data), true);
+  }
+
+  /**
+   * @param {import("./generate-openApi").GenerateOpenApiOpts} options
+   * @returns {Promise<void>}
+   */
+  async generateOpenApi(options) {
+    options.verbose = options.verbose ?? this.verbose;
+
+    if (isNil(options?.outputFile)) {
+      throw new Error("Need options.outputFile to write file to.");
+    }
+
+    if (isNil(options?.inputPath)) {
+      throw new Error("Need options.inputPath for compas structure");
+    }
+
+    const inputStructure = pathJoin(options.inputPath, "common/structure.js");
+    if (!existsSync(inputStructure)) {
+      throw new Error(
+        `Invalid inputPath '${options.inputPath}'. '${inputStructure}' does not exists. Is it correctly generated?`,
+      );
+    }
+    options.inputPath = inputStructure;
+
+    await generateOpenApi(this.logger, options);
   }
 
   /**

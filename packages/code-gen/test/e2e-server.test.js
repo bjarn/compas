@@ -172,7 +172,7 @@ test("code-gen/e2e-server", async (t) => {
       {
         myFile: {
           name: "foo.json",
-          data: createReadStream("./__fixtures__/code-gen/openapi.json"),
+          data: createReadStream("./__fixtures__/code-gen/openAPI.json"),
         },
       },
     );
@@ -187,7 +187,7 @@ test("code-gen/e2e-server", async (t) => {
         await serverApiClientImport.apiServerSetMimeCheckedFile(axiosInstance, {
           myFile: {
             name: "foo.json",
-            data: createReadStream("./__fixtures__/code-gen/openapi.json"),
+            data: createReadStream("./__fixtures__/code-gen/openAPI.json"),
           },
         });
 
