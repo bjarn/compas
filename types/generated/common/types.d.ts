@@ -1600,6 +1600,7 @@ declare global {
     idempotent: boolean;
     path: string;
     tags: string[];
+    headers?: undefined | CodeGenType;
     query?: undefined | CodeGenType;
     params?: undefined | CodeGenType;
     body?: undefined | CodeGenType;

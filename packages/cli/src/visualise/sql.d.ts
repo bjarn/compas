@@ -7,8 +7,5 @@
  * @param {CodeGenStructure} structure
  * @returns {string}
  */
-export function formatGraphOfSql(
-  codeGen: any,
-  structure: CodeGenStructure,
-): string;
+export function formatGraphOfSql(codeGen: any, structure: CodeGenStructure): string;
 //# sourceMappingURL=sql.d.ts.map

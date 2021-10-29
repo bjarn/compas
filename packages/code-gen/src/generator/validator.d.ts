@@ -14,9 +14,9 @@
 export function generateValidatorFile(context: CodeGenContext): void;
 export type ImportCreator = import("./utils").ImportCreator;
 export type ValidatorContext = {
-  context: CodeGenContext;
-  anonymousFunctionMapping: Map<string, number>;
-  anonymousFunctions: string[];
-  objectSets: Map<string, string>;
+    context: CodeGenContext;
+    anonymousFunctionMapping: Map<string, number>;
+    anonymousFunctions: string[];
+    objectSets: Map<string, string>;
 };
 //# sourceMappingURL=validator.d.ts.map

@@ -12,8 +12,5 @@ export function createOrderByTypes(context: CodeGenContext): void;
  * @param {CodeGenContext} context
  * @param {CodeGenObjectType} type
  */
-export function getOrderByPartial(
-  context: CodeGenContext,
-  type: CodeGenObjectType,
-): string;
+export function getOrderByPartial(context: CodeGenContext, type: CodeGenObjectType): string;
 //# sourceMappingURL=order-by-type.d.ts.map

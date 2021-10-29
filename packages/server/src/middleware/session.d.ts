@@ -16,15 +16,10 @@
  * }>} opts KoaSession options
  * @returns {Middleware}
  */
-export function session(
-  app: import("../app").KoaApplication,
-  opts: Partial<
-    koaSession.opts & {
-      renew: number | boolean;
-      keepPublicCookie?: boolean;
-    }
-  >,
-): Middleware;
+export function session(app: import("../app").KoaApplication, opts: Partial<koaSession.opts & {
+    renew: number | boolean;
+    keepPublicCookie?: boolean;
+}>): Middleware;
 export type Middleware = import("koa").Middleware;
 import koaSession from "koa-session";
 //# sourceMappingURL=session.d.ts.map

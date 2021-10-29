@@ -12,6 +12,7 @@ export class RouteBuilder extends TypeBuilder {
     this.data.tags = [];
     this.data.idempotent = false;
 
+    this.headersBuilder = undefined;
     this.queryBuilder = undefined;
     this.paramsBuilder = undefined;
     this.bodyBuilder = undefined;
@@ -43,6 +44,16 @@ export class RouteBuilder extends TypeBuilder {
       throw new Error(`Can only set idempotent on POST routes`);
     }
     this.data.idempotent = true;
+
+    return this;
+  }
+
+  /**
+   * @param {import("../../index").TypeBuilderLike} builder
+   * @returns {RouteBuilder}
+   */
+  headers(builder) {
+    this.headersBuilder = builder;
 
     return this;
   }
@@ -112,6 +123,15 @@ export class RouteBuilder extends TypeBuilder {
       throw new Error(
         `Route ${result.group} - ${result.name} can't have both body and files.`,
       );
+    }
+
+    if (this.headersBuilder) {
+      result.headers = buildOrInfer(this.headersBuilder);
+
+      if (isNil(result.headers.name)) {
+        result.headers.group = result.group;
+        result.headers.name = `${result.headers}Query`;
+      }
     }
 
     if (this.queryBuilder) {
@@ -220,6 +240,7 @@ export class RouteCreator {
     /** @type {string[]} */
     this.defaultTags = [];
 
+    this.headersBuilder = undefined;
     this.queryBuilder = undefined;
     this.paramsBuilder = undefined;
     this.bodyBuilder = undefined;
@@ -233,6 +254,16 @@ export class RouteCreator {
    */
   tags(...values) {
     this.defaultTags.push(...values);
+
+    return this;
+  }
+
+  /**
+   * @param {import("../../index").TypeBuilderLike} builder
+   * @returns {RouteCreator}
+   */
+  headers(builder) {
+    this.headersBuilder = builder;
 
     return this;
   }

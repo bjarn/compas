@@ -26,13 +26,10 @@ export function pathJoin(...paths: string[]): string;
  * @param {ExecOptions} [opts={}]
  * @returns {Promise<{stdout: string, stderr: string, exitCode: number}>}
  */
-export function exec(
-  command: string,
-  opts?: import("child_process").ExecOptions | undefined,
-): Promise<{
-  stdout: string;
-  stderr: string;
-  exitCode: number;
+export function exec(command: string, opts?: import("child_process").ExecOptions | undefined): Promise<{
+    stdout: string;
+    stderr: string;
+    exitCode: number;
 }>;
 /**
  * Wrap around Node.js child_process#spawn. Resolving when the sub process has exited. The
@@ -46,12 +43,8 @@ export function exec(
  * @param {import("child_process").SpawnOptions} [opts={}]
  * @returns {Promise<{exitCode: number}>}
  */
-export function spawn(
-  command: string,
-  args: string[],
-  opts?: import("child_process").SpawnOptions | undefined,
-): Promise<{
-  exitCode: number;
+export function spawn(command: string, args: string[], opts?: import("child_process").SpawnOptions | undefined): Promise<{
+    exitCode: number;
 }>;
 /**
  * Read a readable stream completely, and return as Buffer
@@ -71,11 +64,7 @@ export function streamToBuffer(stream: NodeJS.ReadableStream): Promise<Buffer>;
  * @param {(file: string) => (void|Promise<void>)} cb
  * @param {ProcessDirectoryOptions} [opts]
  */
-export function processDirectoryRecursive(
-  dir: string,
-  cb: (file: string) => void | Promise<void>,
-  opts?: import("../types/advanced-types").ProcessDirectoryOptions | undefined,
-): Promise<void>;
+export function processDirectoryRecursive(dir: string, cb: (file: string) => (void | Promise<void>), opts?: import("../types/advanced-types").ProcessDirectoryOptions | undefined): Promise<void>;
 /**
  * Sync version of processDirectoryRecursive
  *
@@ -85,12 +74,7 @@ export function processDirectoryRecursive(
  * @param {(file: string) => (void)} cb
  * @param {ProcessDirectoryOptions} [opts]
  */
-export function processDirectoryRecursiveSync(
-  dir: string,
-  cb: (file: string) => void,
-  opts?: import("../types/advanced-types").ProcessDirectoryOptions | undefined,
-): void;
+export function processDirectoryRecursiveSync(dir: string, cb: (file: string) => (void), opts?: import("../types/advanced-types").ProcessDirectoryOptions | undefined): void;
 export type ExecOptions = import("child_process").ExecOptions;
-export type ProcessDirectoryOptions =
-  import("../types/advanced-types").ProcessDirectoryOptions;
+export type ProcessDirectoryOptions = import("../types/advanced-types").ProcessDirectoryOptions;
 //# sourceMappingURL=node.d.ts.map

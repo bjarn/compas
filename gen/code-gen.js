@@ -412,6 +412,7 @@ function getTypes(T) {
     idempotent: T.bool().default(false),
     path: T.string(),
     tags: [T.string()],
+    headers: T.reference("codeGen", "type").optional(),
     query: T.reference("codeGen", "type").optional(),
     params: T.reference("codeGen", "type").optional(),
     body: T.reference("codeGen", "type").optional(),

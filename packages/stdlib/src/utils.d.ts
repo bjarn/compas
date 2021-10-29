@@ -36,10 +36,7 @@ export function gc(): void;
  * @param {(logger: Logger) => void|Promise<void>} cb
  * @returns {void}
  */
-export function mainFn(
-  meta: ImportMeta,
-  cb: (logger: Logger) => void | Promise<void>,
-): void;
+export function mainFn(meta: ImportMeta, cb: (logger: Logger) => void | Promise<void>): void;
 /**
  * ES module compatibility counterpart of the CommonJS __filename
  *
@@ -66,8 +63,8 @@ export function dirnameForModule(meta: ImportMeta): string;
  * @returns {{ isMainFn: boolean, name?: string}}
  */
 export function isMainFnAndReturnName(meta: ImportMeta): {
-  isMainFn: boolean;
-  name?: string;
+    isMainFn: boolean;
+    name?: string;
 };
 export type Logger = import("../types/advanced-types.js").Logger;
 //# sourceMappingURL=utils.d.ts.map

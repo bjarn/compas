@@ -6,13 +6,7 @@
  * @param {*} message
  * @returns {void}
  */
-export function writePretty(
-  stream: NodeJS.WritableStream,
-  level: string,
-  timestamp: Date,
-  context: string,
-  message: any,
-): void;
+export function writePretty(stream: NodeJS.WritableStream, level: string, timestamp: Date, context: string, message: any): void;
 /**
  * @param {NodeJS.WritableStream} stream
  * @param {string} level
@@ -21,13 +15,7 @@ export function writePretty(
  * @param {*} message
  * @returns {void}
  */
-export function writeGithubActions(
-  stream: NodeJS.WritableStream,
-  level: string,
-  timestamp: Date,
-  context: string,
-  message: any,
-): void;
+export function writeGithubActions(stream: NodeJS.WritableStream, level: string, timestamp: Date, context: string, message: any): void;
 /**
  * @param {string|undefined} level
  * @param {Date} timestamp
@@ -35,10 +23,5 @@ export function writeGithubActions(
  * @param {*} message
  * @returns {string}
  */
-export function formatPretty(
-  level: string | undefined,
-  timestamp: Date,
-  context: string | any,
-  message: any,
-): string;
+export function formatPretty(level: string | undefined, timestamp: Date, context: string | any, message: any): string;
 //# sourceMappingURL=writer.d.ts.map

@@ -27,41 +27,22 @@
  * @param {string} shortName
  * @returns {import("../types/advanced-types").QueryPart}
  */
-export function generatedWhereBuilderHelper(
-  entityWhereInformation: EntityWhere | (() => EntityWhere),
-  where: any,
-  shortName: string,
-): import("../types/advanced-types").QueryPart;
+export function generatedWhereBuilderHelper(entityWhereInformation: EntityWhere | (() => EntityWhere), where: any, shortName: string): import("../types/advanced-types").QueryPart;
 export type EntityWhere = {
-  fieldSpecification: {
-    tableKey: string;
-    keyType: string;
-    matchers: {
-      matcherKey: string;
-      matcherType:
-        | "equal"
-        | "notEqual"
-        | "in"
-        | "notIn"
-        | "greaterThan"
-        | "lowerThan"
-        | "like"
-        | "iLike"
-        | "notLike"
-        | "notILike"
-        | "includeNotNull"
-        | "isNull"
-        | "isNotNull"
-        | "exists"
-        | "notExists";
-      relation: {
-        entityName: string;
-        shortName: string;
-        entityKey: string;
-        referencedKey: string;
-        where: "self" | EntityWhere;
-      };
+    fieldSpecification: {
+        tableKey: string;
+        keyType: string;
+        matchers: {
+            matcherKey: string;
+            matcherType: "equal" | "notEqual" | "in" | "notIn" | "greaterThan" | "lowerThan" | "like" | "iLike" | "notLike" | "notILike" | "includeNotNull" | "isNull" | "isNotNull" | "exists" | "notExists";
+            relation: {
+                entityName: string;
+                shortName: string;
+                entityKey: string;
+                referencedKey: string;
+                where: "self" | EntityWhere;
+            };
+        }[];
     }[];
-  }[];
 };
 //# sourceMappingURL=generator-helpers.d.ts.map

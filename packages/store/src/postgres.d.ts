@@ -5,9 +5,7 @@
  * @param {Postgres["connectionOptions"]} opts
  * @returns {Postgres["connectionOptions"]}
  */
-export function buildAndCheckOpts(
-  opts: Postgres["connectionOptions"],
-): Postgres["connectionOptions"];
+export function buildAndCheckOpts(opts: Postgres["connectionOptions"]): Postgres["connectionOptions"];
 /**
  * Create a new postgres connection, using the default environment variables.
  * A database may be created using the provided credentials.
@@ -17,9 +15,7 @@ export function buildAndCheckOpts(
  * @param {Postgres["connectionOptions"]} [opts]
  * @returns {Promise<Postgres>}
  */
-export function newPostgresConnection(
-  opts?: Postgres["connectionOptions"],
-): Promise<Postgres>;
+export function newPostgresConnection(opts?: Postgres["connectionOptions"]): Promise<Postgres>;
 /**
  * @param sql
  * @param databaseName
@@ -27,12 +23,7 @@ export function newPostgresConnection(
  * @param connectionOptions
  * @returns {Promise<Postgres>}
  */
-export function createDatabaseIfNotExists(
-  sql: any,
-  databaseName: any,
-  template: any,
-  connectionOptions: any,
-): Promise<Postgres>;
+export function createDatabaseIfNotExists(sql: any, databaseName: any, template: any, connectionOptions: any): Promise<Postgres>;
 export { postgres };
 export type Postgres = import("../types/advanced-types").Postgres;
 import postgres from "postgres";

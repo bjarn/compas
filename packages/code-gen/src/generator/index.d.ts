@@ -5,11 +5,7 @@
  * @param {CodeGenStructure} structure
  * @returns {Promise<void>}
  */
-export function generate(
-  logger: Logger,
-  options: any,
-  structure: CodeGenStructure,
-): Promise<void>;
+export function generate(logger: Logger, options: any, structure: CodeGenStructure): Promise<void>;
 /**
  * Use the fileHeader from options, and prefix all file contents with it
  *

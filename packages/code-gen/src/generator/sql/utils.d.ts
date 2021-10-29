@@ -4,16 +4,12 @@
  *
  * @param {CodeGenContext} context
  */
-export function addShortNamesToQueryEnabledObjects(
-  context: CodeGenContext,
-): void;
+export function addShortNamesToQueryEnabledObjects(context: CodeGenContext): void;
 /**
  * @param {CodeGenContext} context
  * @returns {CodeGenObjectType[]}
  */
-export function getQueryEnabledObjects(
-  context: CodeGenContext,
-): CodeGenObjectType[];
+export function getQueryEnabledObjects(context: CodeGenContext): CodeGenObjectType[];
 /**
  * Get primary key of object type.
  * If not exists, throw nicely.
@@ -22,10 +18,7 @@ export function getQueryEnabledObjects(
  * @param {CodeGenContext} context
  * @param {CodeGenObjectType} type
  */
-export function staticCheckPrimaryKey(
-  context: CodeGenContext,
-  type: CodeGenObjectType,
-): void;
+export function staticCheckPrimaryKey(context: CodeGenContext, type: CodeGenObjectType): void;
 /**
  * Get primary key of object type.
  * The returned value is a copy, and not primary anymore.
@@ -34,8 +27,8 @@ export function staticCheckPrimaryKey(
  * @returns {{ key: string, field: CodeGenType }}
  */
 export function getPrimaryKeyWithType(type: CodeGenObjectType): {
-  key: string;
-  field: CodeGenType;
+    key: string;
+    field: CodeGenType;
 };
 /**
  * Returns a sorted list of key names for the provided object type

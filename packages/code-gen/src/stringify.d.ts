@@ -8,8 +8,5 @@
  * @param {boolean} [includeSqlRelated=false]
  * @returns {string}
  */
-export function stringifyType(
-  type: CodeGenType,
-  includeSqlRelated?: boolean | undefined,
-): string;
+export function stringifyType(type: CodeGenType, includeSqlRelated?: boolean | undefined): string;
 //# sourceMappingURL=stringify.d.ts.map

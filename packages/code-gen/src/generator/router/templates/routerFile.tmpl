@@ -99,6 +99,16 @@ const handlers = {
           eventRename(ctx.event, `router.{{= item.group }}.{{= item.name }}`);
         }
 
+        ctx.request.headers = headers;
+
+        {{ if (item.params) { }}
+        const validatedHeaders = {{= item.headers.reference.group }}Validators.validate{{= item.headers.reference.uniqueName }}(headers);
+        if (validatedHeaders.error) {
+         throw validatedHeaders.error;
+        }
+        ctx.validatedHeaders = validatedHeaders.value;
+        {{ } }}
+
         ctx.request.params = params;
 
         {{ if (item.params) { }}

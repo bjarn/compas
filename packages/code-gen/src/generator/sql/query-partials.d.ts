@@ -9,12 +9,7 @@
  * @param {CodeGenObjectType} type
  * @param {string[]} src
  */
-export function generateQueryPartials(
-  context: CodeGenContext,
-  imports: ImportCreator,
-  type: CodeGenObjectType,
-  src: string[],
-): void;
+export function generateQueryPartials(context: CodeGenContext, imports: ImportCreator, type: CodeGenObjectType, src: string[]): void;
 /**
  * Static field in set check function
  *
@@ -26,10 +21,7 @@ export function knownFieldsCheckFunction(): string;
  * @param {CodeGenContext} context
  * @param {CodeGenObjectType} type
  */
-export function getFieldSet(
-  context: CodeGenContext,
-  type: CodeGenObjectType,
-): string;
+export function getFieldSet(context: CodeGenContext, type: CodeGenObjectType): string;
 /**
  * A list of fields for the provided type, with dynamic tableName
  *

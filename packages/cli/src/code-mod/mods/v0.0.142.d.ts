@@ -6,8 +6,5 @@
  * @param {boolean} verbose
  * @returns {Promise<void>}
  */
-export function executeCodeModVZeroDotZeroDotHundredFortyTwo(
-  event: InsightEvent,
-  verbose: boolean,
-): Promise<void>;
+export function executeCodeModVZeroDotZeroDotHundredFortyTwo(event: InsightEvent, verbose: boolean): Promise<void>;
 //# sourceMappingURL=v0.0.142.d.ts.map

@@ -10,9 +10,7 @@
  * @param {typeof import("./generated/database/index.js").queries} q
  * @returns {void}
  */
-export function setStoreQueries(
-  q: typeof import("./generated/database/index.js").queries,
-): void;
+export function setStoreQueries(q: typeof import("./generated/database/index.js").queries): void;
 /**
  * @type {typeof import("./generated/database/index.js").queries}
  */

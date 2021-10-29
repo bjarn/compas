@@ -59,6 +59,11 @@ export function generateRouterFiles(context) {
           event: InsightEvent,
           log: Logger,
           ${
+            route.headers
+              ? `validatedHeaders: ${route.headers.reference.uniqueName},`
+              : ""
+          }
+          ${
             route.query
               ? `validatedQuery: ${route.query.reference.uniqueName},`
               : ""
